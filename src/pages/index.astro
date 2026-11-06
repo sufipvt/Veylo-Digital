@@ -12,6 +12,7 @@ import lit from '../assets/renders/tower-lit.png';
 import aerial from '../assets/renders/aerial.png';
 import street from '../assets/renders/street.png';
 import villa from '../assets/renders/villa.png';
+import twilight from '../assets/renders/twilight.png';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const areas = (await getCollection('areas')).sort((a, b) => a.data.order - b.data.order);
@@ -83,12 +84,13 @@ const faq = [
     </div>
   </section>
 
-  <section class="sec" style="padding-top:0">
+  <section class="sec gal">
+    <Arc />
     <div class="wrap">
       <h2 class="rise">Shot for the hour<br />buildings look best</h2>
       <p class="lede rise" style="margin-top:22px">Blue hour, the twenty minutes after sunset, is when glass glows and every window tells a story. We plan shoots around it.</p>
       <div class="reel">
-        <figure class="frame"><Image src={lit} alt="Tower at blue hour, lights on" widths={[600, 1000]} sizes="(max-width: 860px) 100vw, 58vw" /><figcaption>Sample · twilight exterior</figcaption></figure>
+        <figure class="frame"><Image src={twilight} alt="Glass tower at blue hour seen from across the street" widths={[600, 1000]} sizes="(max-width: 860px) 100vw, 58vw" /><figcaption>Sample · twilight exterior</figcaption></figure>
         <figure class="frame"><Image src={street} alt="Street-level view of lit towers" widths={[600, 900]} sizes="(max-width: 860px) 100vw, 40vw" /><figcaption>Sample · street approach</figcaption></figure>
         <figure class="frame"><Image src={villa} alt="Hillside villa with lit glass walls and a pool at dusk" widths={[600, 900]} sizes="(max-width: 860px) 100vw, 40vw" /><figcaption>Sample · hill villa at dusk</figcaption></figure>
       </div>
