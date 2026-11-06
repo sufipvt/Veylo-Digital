@@ -1,0 +1,128 @@
+---
+import Base from '../layouts/Base.astro';
+import Arc from '../components/Arc.astro';
+import Icon from '../components/Icon.astro';
+import LeadForm from '../components/LeadForm.astro';
+import Close from '../components/Close.astro';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { wa } from '../site';
+import dusk from '../assets/renders/tower-dusk.png';
+import lit from '../assets/renders/tower-lit.png';
+import aerial from '../assets/renders/aerial.png';
+import street from '../assets/renders/street.png';
+import villa from '../assets/renders/villa.png';
+import twilight from '../assets/renders/twilight.png';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const areas = (await getCollection('areas')).sort((a, b) => a.data.order - b.data.order);
+const icons = ['shoots', 'drone', 'social', 'content', 'influencer'];
+const faq = [
+  ['Do you only work with real estate?', 'Yes. We work only with real estate agents and firms, so every shoot, post and campaign is built for buyers and sellers of property.'],
+  ['Which areas do you cover?', 'Delhi, Noida, Greater Noida, Gurgaon and Uttarakhand. For a larger project elsewhere, ask us on WhatsApp.'],
+  ['Do I need to be at the shoot?', 'Only to give us access. We plan the shot list, bring the crew and the drone, and handle the edit.'],
+  ['What does it cost?', 'It depends on how many listings you shoot and which services you need each month. After the growth call you get a written plan and a clear monthly price, with no obligation.'],
+  ['How do we start?', 'Send your details or message us on WhatsApp. We book a free growth call, look at your current listings and pages, and plan your first shoot on that call.'],
+];
+---
+<Base description="Cinematic property shoots, drone footage, social media, content and influencer marketing for real estate agents and firms in Delhi NCR and Uttarakhand.">
+  <section class="hero">
+    <div class="hero-tower">
+      <Image src={dusk} alt="" widths={[800, 1200, 1600]} sizes="(max-width: 860px) 100vw, 62vw" loading="eager" fetchpriority="high" />
+      <Image class="lit" src={lit} alt="A glass residential tower at blue hour with its windows lit" widths={[800, 1200, 1600]} sizes="(max-width: 860px) 100vw, 62vw" loading="eager" />
+    </div>
+    <span class="sample">Sample render</span>
+    <Arc />
+    <div class="wrap">
+      <h1><span>Make every listing</span> <span>impossible to</span> <span>scroll past</span></h1>
+      <p class="lede">Cinematic shoots, drone footage and social content for real estate agents and firms across Delhi NCR and Uttarakhand.</p>
+      <div class="hero-cta">
+        <a class="btn" href={wa()}><Icon name="whatsapp" /> Chat on WhatsApp</a>
+        <a class="btn" href="/work">See the look we shoot for</a>
+      </div>
+      <LeadForm source="home-hero" />
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap split">
+      <h2 class="rise">Most listings look the same. <span class="blue">Yours shouldn't.</span></h2>
+      <div class="who">
+        <article class="rise">
+          <h3>For agents</h3>
+          <p>Your listings sit next to a hundred others with the same dim photos. You know you should post every week, but site visits and calls come first.</p>
+          <p>We shoot your listings so buyers stop scrolling, and we run your social media so sellers remember your name when they're ready.</p>
+        </article>
+        <article class="rise">
+          <h3>For real estate firms</h3>
+          <p>Every agent shoots differently, every page looks different, and nobody can say what the content is actually bringing in.</p>
+          <p>We give the whole firm one visual standard, one content calendar and one monthly report on reach, enquiries and listings won.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="rise">Five ways we fill your pipeline</h2>
+      <div class="svc">
+        <ol>
+          {services.map((s, i) => (
+            <li class="rise"><a href={`/services/${s.id}`}>
+              <Icon name={icons[i]} class="ic" />
+              <h3>{s.data.title}</h3>
+              <p>{s.data.line}</p>
+              <Icon name="arrow" class="go" />
+            </a></li>
+          ))}
+        </ol>
+        <figure>
+          <div class="frame" style="aspect-ratio:4/3"><Image src={aerial} alt="Aerial view of a lit township grid at night" widths={[600, 1000]} sizes="(max-width: 860px) 100vw, 45vw" /></div>
+          <figcaption>Sample render · aerial location shot</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec gal">
+    <Arc />
+    <div class="wrap">
+      <h2 class="rise">Shot for the hour<br />buildings look best</h2>
+      <p class="lede rise" style="margin-top:22px">Blue hour, the twenty minutes after sunset, is when glass glows and every window tells a story. We plan shoots around it.</p>
+      <div class="reel">
+        <figure class="frame"><Image src={twilight} alt="Glass tower at blue hour seen from across the street" widths={[600, 1000]} sizes="(max-width: 860px) 100vw, 58vw" /><figcaption>Sample · twilight exterior</figcaption></figure>
+        <figure class="frame"><Image src={street} alt="Street-level view of lit towers" widths={[600, 900]} sizes="(max-width: 860px) 100vw, 40vw" /><figcaption>Sample · street approach</figcaption></figure>
+        <figure class="frame"><Image src={villa} alt="Hillside villa with lit glass walls and a pool at dusk" widths={[600, 900]} sizes="(max-width: 860px) 100vw, 40vw" /><figcaption>Sample · hill villa at dusk</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="rise">How we work</h2>
+      <ol class="steps">
+        <li class="rise"><h3>Build</h3><p>A free growth call, an audit of your current listings and pages, a content plan, and your first shoot.</p></li>
+        <li class="rise"><h3>Grow</h3><p>Consistent posts and reels, listing campaigns and creator collaborations that put your properties in front of the right buyers.</p></li>
+        <li class="rise"><h3>Scale</h3><p>A monthly content engine with a clear report on reach, enquiries and listings won, so you know what to do more of.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="areas" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="rise">Where we shoot</h2>
+      <div class="areas">
+        {areas.map((a) => <a class="rise" href={`/areas/${a.id}`}><b>{a.data.title}</b><span>{a.data.line}</span><Icon name="arrow" /></a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec faq" style="padding-top:0">
+    <div class="wrap split">
+      <h2>Questions agents ask us</h2>
+      <div>{faq.map(([q, a]) => <details><summary>{q}<Icon name="plus" /></summary><p>{a}</p></details>)}</div>
+    </div>
+  </section>
+
+  <Close source="home-close" />
+</Base>

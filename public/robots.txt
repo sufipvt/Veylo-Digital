@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://veylomedia.example/sitemap.xml

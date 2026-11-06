@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-06T10:59:00+00:00",
+  "title": "Design System: Veylo Media",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Ground",
+        "canonical": "#04050a",
+        "tonalRamp": [
+          "#0f111a",
+          "#1d2135",
+          "#2d355c",
+          "#3c4886",
+          "#495bb6",
+          "#7d89c4",
+          "#b5bbd9",
+          "#e5e7f0"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Night",
+        "canonical": "#070b16",
+        "tonalRamp": [
+          "#0e111b",
+          "#1a2237",
+          "#293861",
+          "#344c8e",
+          "#3e61c1",
+          "#768dcc",
+          "#b1bddd",
+          "#e4e8f1"
+        ]
+      },
+      "sky": {
+        "role": "neutral",
+        "displayName": "Sky",
+        "canonical": "#0a1630",
+        "tonalRamp": [
+          "#0c111d",
+          "#16223b",
+          "#213869",
+          "#284c9a",
+          "#2c61d3",
+          "#6a8dd7",
+          "#abbde2",
+          "#e2e8f3"
+        ]
+      },
+      "electric-blue": {
+        "role": "primary",
+        "displayName": "Electric Blue",
+        "canonical": "#1f7bff",
+        "tonalRamp": [
+          "#081221",
+          "#0c2445",
+          "#0e3b7b",
+          "#0a51b7",
+          "#0069ff",
+          "#4d92f4",
+          "#9dbff1",
+          "#dee8f7"
+        ]
+      },
+      "arc-blue": {
+        "role": "primary",
+        "displayName": "Arc Blue",
+        "canonical": "#59a8ff",
+        "tonalRamp": [
+          "#081421",
+          "#0c2745",
+          "#0e427b",
+          "#0a5db7",
+          "#0079ff",
+          "#4d9df4",
+          "#9dc5f1",
+          "#deeaf7"
+        ]
+      },
+      "action-blue": {
+        "role": "primary",
+        "displayName": "Action Blue",
+        "canonical": "#1463e0",
+        "tonalRamp": [
+          "#0a121f",
+          "#112340",
+          "#173b72",
+          "#1951a9",
+          "#1567ea",
+          "#5b91e6",
+          "#a4bfea",
+          "#e0e8f5"
+        ]
+      },
+      "silver": {
+        "role": "neutral",
+        "displayName": "Silver",
+        "canonical": "#c9ced6",
+        "tonalRamp": [
+          "#131416",
+          "#25282d",
+          "#3d434c",
+          "#555e6d",
+          "#6e7b91",
+          "#959eac",
+          "#c1c6cd",
+          "#e9eaec"
+        ]
+      },
+      "silver-hi": {
+        "role": "neutral",
+        "displayName": "Silver Hi",
+        "canonical": "#eef1f5",
+        "tonalRamp": [
+          "#111418",
+          "#212830",
+          "#374353",
+          "#4a5e77",
+          "#5e7ba1",
+          "#8b9eb6",
+          "#bcc5d2",
+          "#e7eaee"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "canonical": "#9aa3b2",
+        "tonalRamp": [
+          "#131416",
+          "#25282d",
+          "#3d434c",
+          "#555e6d",
+          "#6e7b91",
+          "#959eac",
+          "#c1c5cd",
+          "#e9eaec"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "rgb(201 206 214 / 0.14)",
+        "tonalRamp": [
+          "#131416",
+          "#25282d",
+          "#3d434c",
+          "#555e6d",
+          "#6e7b91",
+          "#959eac",
+          "#c1c6cd",
+          "#e9eaec"
+        ]
+      },
+      "whatsapp-green": {
+        "role": "tertiary",
+        "displayName": "WhatsApp Green",
+        "canonical": "#1fa855",
+        "tonalRamp": [
+          "#0c1d13",
+          "#153c25",
+          "#1f6a3d",
+          "#259c54",
+          "#28d76d",
+          "#67da95",
+          "#aae4c1",
+          "#e2f3e9"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page h1 in uppercase Michroma; home hero uses clamp(1.75rem, 3.8vw, 3.5rem)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section h2s."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "h3 and .h3 subheads, 0.08em tracking."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs, max 64ch."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "One intro paragraph under a heading."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase Muted field labels, captions and the Sample render label."
+      }
+    },
+    "shadows": [
+      {
+        "name": "action-lift",
+        "value": "0 12px 28px -12px rgb(0 0 0 / 0.9)",
+        "purpose": "Primary button."
+      },
+      {
+        "name": "float",
+        "value": "0 12px 30px -8px rgb(0 0 0 / 0.7)",
+        "purpose": "Fixed WhatsApp button."
+      },
+      {
+        "name": "legibility-halo",
+        "value": "text-shadow: 0 2px 24px rgb(4 5 10 / 0.6)",
+        "purpose": "Hero h1 over imagery."
+      },
+      {
+        "name": "glass",
+        "value": "background: rgb(7 11 22 / 0.72); backdrop-filter: blur(10px)",
+        "purpose": "Band form and mobile menu."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "All transforms and row transitions, 0.3-0.4s."
+      },
+      {
+        "name": "lights-on",
+        "value": "opacity 0 to 1, animation-timeline: scroll(root), range 0 55vh",
+        "purpose": "Hero tower crossfades dusk to lit. Static under reduced motion."
+      },
+      {
+        "name": "rise",
+        "value": "from opacity 0.2, translateY(28px); animation-timeline: view(), entry 0-40%",
+        "purpose": "Section reveal; visible by default."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "860px"
+      },
+      {
+        "name": "areas-row",
+        "value": "700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled Action Blue pill; one per view for the main action.",
+      "html": "<a class=\"ds-btn ds-btn-blue\" href=\"#\">Book a growth call <svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12h16m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn { display:inline-flex; align-items:center; gap:.6em; padding:.95em 1.5em; border-radius:999px; font-family: var(--body, \"Manrope Variable\", \"Segoe UI\", sans-serif); font-weight:600; font-size:.95rem; line-height:1; text-decoration:none; border:1px solid rgb(201 206 214 / .14); color:#eef1f5; background:rgb(255 255 255 / .03); transition:border-color .3s, background .3s, transform .3s cubic-bezier(.16,1,.3,1); cursor:pointer; } .ds-btn-blue { background:#1463e0; border-color:#1463e0; color:#fff; box-shadow:0 12px 28px -12px rgb(0 0 0 / .9); } .ds-btn-blue:hover { background:#0f56c8; transform:translateY(-1px); } .ds-btn:focus-visible { outline:2px solid #59a8ff; outline-offset:3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Default pill for secondary actions such as Chat on WhatsApp.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.1z\"/><path d=\"M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1-1.6-2-1-1 .9a5 5 0 0 1-2.3-2.3l.9-1-1-2z\"/></svg> Chat on WhatsApp</a>",
+      "css": ".ds-btn-ghost { display:inline-flex; align-items:center; gap:.6em; padding:.95em 1.5em; border-radius:999px; font-family: var(--body, \"Manrope Variable\", \"Segoe UI\", sans-serif); font-weight:600; font-size:.95rem; line-height:1; text-decoration:none; border:1px solid rgb(201 206 214 / .14); color:#eef1f5; background:rgb(255 255 255 / .03); transition:border-color .3s, background .3s; } .ds-btn-ghost:hover { border-color:#59a8ff; background:rgb(31 123 255 / .12); } .ds-btn-ghost:focus-visible { outline:2px solid #59a8ff; outline-offset:3px; }"
+    },
+    {
+      "name": "Band Form",
+      "kind": "custom",
+      "refersTo": "band-form",
+      "description": "Signature pill lead form from the brand graphic, with a blue corner-block submit.",
+      "html": "<form class=\"ds-band\" onsubmit=\"return false\"><label><span>Your name</span><input placeholder=\"Full name\"></label><label><span>Phone / WhatsApp</span><input placeholder=\"+91 98xxx xxxxx\"></label><button type=\"submit\">Get my free content plan <svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12h16m-6-6 6 6-6 6\"/></svg></button></form>",
+      "css": ".ds-band { display:grid; grid-template-columns:1fr 1fr auto; border:1px solid rgb(201 206 214 / .28); border-radius:999px; background:rgb(7 11 22 / .72); backdrop-filter:blur(10px); overflow:hidden; } .ds-band label { display:grid; padding:14px 26px; border-right:1px solid rgb(201 206 214 / .14); } .ds-band label:focus-within { background:rgb(31 123 255 / .08); } .ds-band span { font-family: var(--body, \"Manrope Variable\", \"Segoe UI\", sans-serif); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:#9aa3b2; } .ds-band input { font-family: var(--body, \"Manrope Variable\", \"Segoe UI\", sans-serif); font-weight:500; font-size:1rem; color:#eef1f5; background:transparent; border:0; padding:4px 0 0; outline:none; } .ds-band input::placeholder { color:#838c9d; } .ds-band button { border:0; padding:0 34px 0 30px; background:linear-gradient(115deg,#1463e0 0%,#0d4fc4 100%); color:#fff; font:400 .82rem/1.3 var(--display, Michroma, Eurostile, sans-serif); letter-spacing:.14em; text-transform:uppercase; text-align:left; display:flex; align-items:center; gap:14px; cursor:pointer; transition:filter .3s; } .ds-band button:hover { filter:brightness(1.1); } .ds-band button:focus-visible { outline:2px solid #59a8ff; outline-offset:-4px; }"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Boxed field for the full lead form; the border carries focus.",
+      "html": "<label class=\"ds-field\"><span>Your name</span><input></label>",
+      "css": ".ds-field { display:grid; gap:6px; padding:14px 18px; border:1px solid rgb(201 206 214 / .2); border-radius:12px; background:rgb(4 5 10 / .6); transition:border-color .3s; } .ds-field:focus-within { border-color:#59a8ff; } .ds-field span { font-family: var(--body, \"Manrope Variable\", \"Segoe UI\", sans-serif); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:#9aa3b2; } .ds-field input { font-family: var(--body, \"Manrope Variable\", \"Segoe UI\", sans-serif); font-weight:500; font-size:1rem; color:#eef1f5; background:transparent; border:0; outline:none; padding:4px 0 0; }"
+    },
+    {
+      "name": "Service Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pill multi-select for services in the lead form.",
+      "html": "<span class=\"ds-chips\"><label><input type=\"checkbox\" checked><span>Drone shoots</span></label><label><input type=\"checkbox\"><span>Social media</span></label></span>",
+      "css": ".ds-chips { display:flex; gap:10px; } .ds-chips label { position:relative; } .ds-chips input { position:absolute; opacity:0; } .ds-chips span { display:block; padding:9px 16px; border:1px solid rgb(201 206 214 / .14); border-radius:999px; font-family: var(--body, \"Manrope Variable\", \"Segoe UI\", sans-serif); font-size:.92rem; color:#c9ced6; cursor:pointer; transition:all .25s; } .ds-chips span:hover { border-color:#59a8ff; } .ds-chips input:checked + span { background:rgb(31 123 255 / .18); border-color:#59a8ff; color:#eef1f5; } .ds-chips input:focus-visible + span { outline:2px solid #59a8ff; outline-offset:2px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Header links with Arc Blue underline on hover/current, plus the primary pill.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Services</a><a href=\"#\">Work</a><a href=\"#\">About</a><a class=\"ds-nav-cta\" href=\"#\">Book a growth call</a></nav>",
+      "css": ".ds-nav { display:flex; align-items:center; gap:28px; font-family: var(--body, \"Manrope Variable\", \"Segoe UI\", sans-serif); } .ds-nav a { text-decoration:none; font-size:.95rem; color:#c9ced6; text-underline-offset:.25em; text-decoration-thickness:1px; } .ds-nav a:hover, .ds-nav a[aria-current] { color:#eef1f5; text-decoration:underline; text-decoration-color:#59a8ff; } .ds-nav a:focus-visible { outline:2px solid #59a8ff; outline-offset:3px; border-radius:4px; } .ds-nav .ds-nav-cta { padding:.95em 1.5em; border-radius:999px; background:#1463e0; color:#fff; font-weight:600; text-decoration:none; } .ds-nav .ds-nav-cta:hover { background:#0f56c8; text-decoration:none; color:#fff; }"
+    },
+    {
+      "name": "Service Row",
+      "kind": "custom",
+      "description": "Ruled list row with line icon, title, muted line and arrow; indents on hover.",
+      "html": "<a class=\"ds-row\" href=\"#\"><svg class=\"ds-ic\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"9\" y=\"10\" width=\"6\" height=\"4\" rx=\"1\"/><path d=\"M9 11 5 7m10 4 4-4M9 13l-4 4m10-4 4 4\"/><path d=\"M2 7h6M16 7h6M2 17h6M16 17h6\"/></svg><b>Drone shoots</b><span>Aerial footage that shows the location.</span><i class=\"ds-go\"><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12h16m-6-6 6 6-6 6\"/></svg></i></a>",
+      "css": ".ds-row { display:grid; grid-template-columns:44px 1fr auto; gap:8px 22px; align-items:center; padding:28px 0; border-top:1px solid rgb(201 206 214 / .14); border-bottom:1px solid rgb(201 206 214 / .14); text-decoration:none; color:#c9ced6; transition:background .4s cubic-bezier(.16,1,.3,1), padding .4s cubic-bezier(.16,1,.3,1); } .ds-row:hover { padding-left:14px; background:linear-gradient(90deg, rgb(31 123 255 / .1), transparent 70%); } .ds-row:focus-visible { outline:2px solid #59a8ff; outline-offset:3px; } .ds-ic { width:34px; height:34px; color:#59a8ff; grid-row:1 / span 2; } .ds-row b { font:400 clamp(1rem,1.5vw,1.2rem)/1.12 var(--display, Michroma, Eurostile, sans-serif); letter-spacing:.08em; text-transform:uppercase; color:#eef1f5; } .ds-row span { grid-column:2; font-family: var(--body, \"Manrope Variable\", \"Segoe UI\", sans-serif); font-size:.98rem; color:#9aa3b2; } .ds-go { grid-row:1 / span 2; grid-column:3; width:22px; color:#59a8ff; transition:transform .4s cubic-bezier(.16,1,.3,1); } .ds-row:hover .ds-go { transform:translateX(6px); }"
+    },
+    {
+      "name": "Media Frame",
+      "kind": "card",
+      "refersTo": "frame",
+      "description": "14px clipped image frame with an overlaid Sample caption.",
+      "html": "<figure class=\"ds-frame\"><div class=\"ds-img\"></div><figcaption>Sample · twilight exterior</figcaption></figure>",
+      "css": ".ds-frame { position:relative; margin:0; width:320px; aspect-ratio:16/10; border-radius:14px; overflow:hidden; border:1px solid rgb(201 206 214 / .14); background:#070b16; } .ds-img { position:absolute; inset:0; background:linear-gradient(180deg,#0a1630,#070b16 60%,#04050a); } .ds-frame figcaption { position:absolute; inset:auto 0 0; padding:40px 18px 14px; font-family: var(--body, \"Manrope Variable\", \"Segoe UI\", sans-serif); font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; color:#eef1f5; background:linear-gradient(transparent, rgb(4 5 10 / .88)); }"
+    },
+    {
+      "name": "WhatsApp Float",
+      "kind": "button",
+      "refersTo": "whatsapp-float",
+      "description": "Fixed circular WhatsApp button, the only use of WhatsApp Green.",
+      "html": "<a class=\"ds-wa\" href=\"#\" aria-label=\"Chat on WhatsApp\"><svg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.1z\"/><path d=\"M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1-1.6-2-1-1 .9a5 5 0 0 1-2.3-2.3l.9-1-1-2z\"/></svg></a>",
+      "css": ".ds-wa { width:58px; height:58px; border-radius:50%; display:grid; place-items:center; background:#1fa855; color:#fff; box-shadow:0 12px 30px -8px rgb(0 0 0 / .7); transition:transform .3s cubic-bezier(.16,1,.3,1); } .ds-wa:hover { transform:scale(1.06); } .ds-wa:focus-visible { outline:2px solid #59a8ff; outline-offset:3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Blue-Hour Shoot",
+    "overview": "The site is lit like a property shoot in the twenty minutes after sunset. Every page is a sky that falls from navy at the top to near-black at the ground, with one electric-blue arc, taken from the logo's V swoosh, sweeping behind the headline and carrying the eye from section to section. Silver wide-tracked capitals are the wall lettering on the building. The body copy is a quiet, legible sans.\n\nDensity is low and cinematic: tall sections, large renders, and hairline rules in place of boxes. Light in the world comes from three sources only: the sky gradient, the arc, and lit windows in the imagery. The build rejects the category default of a flat black page with neon glow and a grid of icon cards.",
+    "keyCharacteristics": [
+      "Navy-to-black vertical sky on every hero; dark scheme only.",
+      "One tapered blue arc per section that uses it, always decorative and behind content.",
+      "Silver uppercase Michroma display over Manrope body.",
+      "Hairline dividers and list rows instead of cards.",
+      "Pill shapes for actions, 14px corners for media.",
+      "Scroll-driven motion in CSS only, static under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The Blue-Hour Sky Rule",
+        "body": "Each top-of-page hero is a vertical gradient from Sky to Ground (the home hero passes through Night at 55%). Never a flat black hero.",
+        "section": "colors"
+      },
+      {
+        "name": "The Light Sources Rule",
+        "body": "Blue light only enters a page through the arc, a blue gradient wash (the close section's radial at 22% alpha, the service-row hover sweep), or lit windows in the imagery. Text and boxes never glow.",
+        "section": "colors"
+      },
+      {
+        "name": "The Wall Lettering Rule",
+        "body": "Michroma is always uppercase at weight 400, and its tracking widens as size falls: 0.02em for h1/h2, 0.08em for h3, and 0.32em for the wordmark and the \"Build · Grow · Scale\" motto. Never set it in sentence case or bold.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do start every hero with the Sky to Ground gradient and at most one arc behind the headline.",
+      "Do use Arc Blue for interactive accents and Action Blue only for filled primary actions with white text.",
+      "Do set headings in uppercase Michroma 400 with the tracking ladder from the Wall Lettering Rule.",
+      "Do group content as ruled rows with 1px Line dividers.",
+      "Do label every demonstration render \"Sample\" and embed provenance in every shipped raster.",
+      "Do keep motion in CSS scroll timelines with a static fallback."
+    ],
+    "donts": [
+      "Don't add glowing box-shadows or neon text glow. Blue light comes only from the arc, gradient washes, and lit windows.",
+      "Don't lay out services or features as a grid of icon cards.",
+      "Don't use WhatsApp Green anywhere except the floating WhatsApp button.",
+      "Don't add light themes or light surfaces. The scheme is dark only.",
+      "Don't use filled or multi-weight icons, icon fonts, or emoji. Use the 1.5px line family only."
+    ]
+  }
+}

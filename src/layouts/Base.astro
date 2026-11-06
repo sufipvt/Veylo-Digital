@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import Icon from '../components/Icon.astro';
+import vMark from '../assets/v-mark.png';
+import { site, nav, wa } from '../site';
+import { getCollection } from 'astro:content';
+
+const { title, description, waText } = Astro.props;
+const path = Astro.url.pathname;
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const areas = (await getCollection('areas')).sort((a, b) => a.data.order - b.data.order);
+const full = title ? `${title} | ${site.name}` : `${site.name}: Real estate marketing in Delhi NCR & Uttarakhand`;
+const ld = { '@context': 'https://schema.org', '@type': 'ProfessionalService', name: site.name, slogan: site.tagline, url: Astro.site, telephone: site.phone, email: site.email, areaServed: site.areas, knowsAbout: services.map((s) => s.data.title) };
+const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+---
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{full}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={new URL(path, Astro.site)} />
+  <meta property="og:title" content={full} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content={new URL("/og.jpg", Astro.site)} />
+  <meta name="theme-color" content="#04050a" />
+  <link rel="icon" href="/favicon.png" />
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  {turnstile && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="hd">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="Veylo Media home">
+        <Image src={vMark} alt="" width={92} loading="eager" />
+        <span><b>VEYLO</b><small>MEDIA</small></span>
+      </a>
+      <input class="sr" type="checkbox" id="menu" aria-label="Open menu" /><label class="btn menu" for="menu" aria-hidden="true"><Icon name="menu" /> Menu</label>
+      <nav class="nav" id="nav" aria-label="Main">
+        {nav.map(([label, href]) => <a href={href} aria-current={path.startsWith(href) && href !== '/#areas' ? 'page' : undefined}>{label}</a>)}
+        <a class="btn btn-blue" href="/contact">Book a growth call</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main"><slot /></main>
+  <footer class="ft">
+    <div class="wrap">
+      <div class="ft-grid">
+        <div>
+          <a class="brand ft-brand" href="/" aria-label="Veylo Media home"><Image src={vMark} alt="" width={92} /><span><b>VEYLO</b><small>MEDIA</small></span></a>
+          <p>{site.tagline}.</p>
+          <p class="motto">Build · Grow · Scale</p>
+        </div>
+        <div><h3>Services</h3><ul>{services.map((s) => <li><a href={`/services/${s.id}`}>{s.data.title}</a></li>)}</ul></div>
+        <div><h3>Areas</h3><ul>{areas.map((a) => <li><a href={`/areas/${a.id}`}>{a.data.title}</a></li>)}</ul></div>
+        <div><h3>Talk to us</h3><ul>
+          <li><a href={wa(waText)}>WhatsApp</a></li>
+          <li><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul></div>
+      </div>
+      <div class="ft-base"><span>© {new Date().getFullYear()} Veylo Media</span><span>Real estate marketing for Delhi NCR and Uttarakhand</span></div>
+    </div>
+  </footer>
+  <a class="wa" href={wa(waText)} aria-label="Chat with Veylo on WhatsApp"><Icon name="whatsapp" /></a>
+</body>
+</html>

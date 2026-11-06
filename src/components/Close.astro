@@ -1,0 +1,18 @@
+---
+import Arc from './Arc.astro';
+import Icon from './Icon.astro';
+import LeadForm from './LeadForm.astro';
+import { wa } from '../site';
+const { title = 'Your next listing could look like this', source = 'page', waText } = Astro.props;
+---
+<section class="sec close">
+  <Arc />
+  <div class="wrap contact-grid">
+    <div>
+      <h2>{title}</h2>
+      <p class="lede" style="margin-top:22px">Tell us about your listings. We'll reply to book a free growth call and plan your first shoot.</p>
+      <div class="reach"><a class="btn" href={wa(waText)}><Icon name="whatsapp" /> Chat on WhatsApp</a></div>
+    </div>
+    <LeadForm variant="full" source={source} />
+  </div>
+</section>

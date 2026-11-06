@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Close from '../../components/Close.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  return (await getCollection('services')).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, line, points } = entry.data;
+---
+<Base title={`${title} for real estate`} description={line} waText={`Hi Veylo, I'm interested in ${title.toLowerCase()}.`}>
+  <PageHero title={title} lede={line} crumb={['All services', '/services']} />
+  <section class="sec" style="padding-top:24px">
+    <div class="wrap split">
+      <div class="prose"><Content /></div>
+      <div><h2 class="h3" style="margin-bottom:18px">What you get</h2><ul class="points">{points.map((p) => <li>{p}</li>)}</ul></div>
+    </div>
+  </section>
+  <Close title={`Talk to us about ${title.toLowerCase()}`} source={`service-${entry.id}`} waText={`Hi Veylo, I'm interested in ${title.toLowerCase()}.`} />
+</Base>
