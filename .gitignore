@@ -5,3 +5,5 @@ dist
 .impeccable/review
 .impeccable/mocks
 .dev.vars
+.env
+.env.local

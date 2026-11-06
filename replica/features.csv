@@ -19,10 +19,10 @@ Contact page and lead form,contact,must,click72,no,One form; one contact URL
 Thank-you page,contact,must,veylo,no,Conversion tracking
 Floating WhatsApp button,global,must,veylo,no,Prefilled message per page
 Click-to-call in header on mobile,global,must,click72,no,
-Lead to Google Sheet via Apps Script,backend,must,veylo,no,
-Gmail notification,backend,must,veylo,no,
-Turnstile and honeypot,security,must,veylo,no,
-Security headers,security,must,veylo,no,
+Lead to Google Sheet via Apps Script,backend,must,veylo,yes,
+Gmail notification,backend,must,veylo,yes,
+Turnstile and honeypot,security,must,veylo,yes,
+Security headers,security,must,veylo,yes,
 Privacy page (DPDP),legal,must,veylo,no,
 Download brochure CTA,home,could,markitup,no,PDF when available
 SEO meta; OG; sitemap; LocalBusiness schema,seo,must,veylo,no,

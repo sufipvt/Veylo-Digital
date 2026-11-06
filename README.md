@@ -37,5 +37,8 @@ npm run build    # static site in dist/
 3. Deploy → New deployment → Web app. Set Execute as to Me and Who has access to Anyone. Copy the web app URL.
 4. In Cloudflare Pages, add these environment variables: `SHEET_URL` (the URL from step 3), `SHEET_SECRET` (same as `SECRET`), `TURNSTILE_SECRET`, and `PUBLIC_TURNSTILE_SITE_KEY` (from Cloudflare Turnstile).
 5. Deploy: connect this repo in Cloudflare Pages with the build command `npm run build` and the output directory `dist`.
+6. Add a rate limit: Cloudflare → Security → WAF → Rate limiting rules. Set path `/api/lead`, 5 requests per minute per IP, action Block.
+
+Run `npm test` to check the lead endpoint. See `replica/backend.md` for the security checklist.
 
 To connect a CRM later, forward the same lead object from `functions/api/lead.js` to the CRM's webhook. The sheet stays as a backup.
