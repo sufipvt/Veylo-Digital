@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import { wa } from '../site';
+---
+<Base title="Thank you" description="Your enquiry has reached Veylo Digital.">
+  <PageHero title="Got it. We'll be in touch." lede="Your details have reached our team. We'll message you to book your free growth call. Want to talk sooner?">
+    <div class="hero-cta"><a class="btn btn-blue" href={wa('Hi Veylo, I just sent my details on your website.')}><Icon name="whatsapp" /> Chat on WhatsApp now</a><a class="btn" href="/work">See the look we shoot for</a></div>
+  </PageHero>
+</Base>

@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { site, wa } from '../site';
+---
+<Base title="Contact" description="Book a free growth call with Veylo Digital. WhatsApp, call or send your details.">
+  <PageHero title="Book a free growth call" lede="Tell us about your listings. We'll look at your current photos and pages and plan your first shoot." />
+  <section class="sec" style="padding-top:24px">
+    <div class="wrap contact-grid">
+      <div class="reach" style="margin-top:0">
+        <a class="btn btn-blue" href={wa()}><Icon name="whatsapp" /> Chat on WhatsApp</a>
+        <a class="btn" href={`tel:${site.phone.replace(/\s/g, '')}`}><Icon name="phone" /> {site.phone}</a>
+        <a class="btn" href={`mailto:${site.email}`}><Icon name="mail" /> {site.email}</a>
+        <p style="margin-top:20px;color:var(--muted)">Serving {site.areas.join(', ')}.</p>
+      </div>
+      <LeadForm variant="full" source="contact" />
+    </div>
+  </section>
+</Base>

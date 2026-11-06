@@ -1,0 +1,37 @@
+---
+import Icon from './Icon.astro';
+const { variant = 'band', source = 'home' } = Astro.props;
+const services = ['Property shoots', 'Drone shoots', 'Social media', 'Content marketing', 'Influencer marketing'];
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+---
+<form method="post" action="/api/lead" class={variant === 'band' ? 'lead' : 'form'}>
+  <input type="hidden" name="source" value={source} />
+  <label class="trap" aria-hidden="true">Leave empty <input name="website" tabindex="-1" autocomplete="off" /></label>
+  {variant === 'band' ? (
+    <>
+      <div class="band">
+        <label><span>Your name</span><input name="name" required maxlength="80" autocomplete="name" placeholder="Full name" /></label>
+        <label><span>Phone / WhatsApp</span><input name="phone" type="tel" required pattern="[0-9+ ()-]{10,16}" autocomplete="tel" placeholder="+91 98xxx xxxxx" /></label>
+        <label><span>I am</span><select name="type"><option>An agent</option><option>A real estate firm</option></select></label>
+        <button type="submit">Get my free content plan <Icon name="arrow" /></button>
+      </div>
+      <label class="consent"><input type="checkbox" name="consent" required /> <span>I agree to be contacted about my enquiry. <a href="/privacy">Privacy policy</a></span></label>
+    </>
+  ) : (
+    <>
+      <label class="field"><span>Your name</span><input name="name" required maxlength="80" autocomplete="name" /></label>
+      <label class="field"><span>Phone / WhatsApp</span><input name="phone" type="tel" required pattern="[0-9+ ()-]{10,16}" autocomplete="tel" /></label>
+      <label class="field"><span>Email (optional)</span><input name="email" type="email" maxlength="120" autocomplete="email" /></label>
+      <label class="field"><span>Company (optional)</span><input name="company" maxlength="120" autocomplete="organization" /></label>
+      <label class="field"><span>I am</span><select name="type"><option>An agent</option><option>A real estate firm</option></select></label>
+      <label class="field"><span>City</span><select name="city"><option>Delhi</option><option>Noida</option><option>Greater Noida</option><option>Gurgaon</option><option>Uttarakhand</option><option>Other</option></select></label>
+      <fieldset class="chips"><legend>What do you need?</legend>
+        {services.map((s) => <label><input type="checkbox" name="services" value={s} /><span>{s}</span></label>)}
+      </fieldset>
+      <label class="field wide"><span>Anything we should know? (optional)</span><textarea name="message" rows="3" maxlength="800"></textarea></label>
+      <label class="consent"><input type="checkbox" name="consent" required /> <span>I agree to be contacted about my enquiry. <a href="/privacy">Privacy policy</a></span></label>
+      <button class="btn btn-blue" type="submit">Book my free growth call <Icon name="arrow" /></button>
+    </>
+  )}
+  {siteKey && <div class="cf-turnstile" data-sitekey={siteKey} data-theme="dark" data-size="flexible"></div>}
+</form>

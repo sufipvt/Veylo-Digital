@@ -1,0 +1,13 @@
+---
+import Arc from './Arc.astro';
+const { title, lede, crumb } = Astro.props;
+---
+<section class="phero">
+  <Arc />
+  <div class="wrap">
+    {crumb && <a class="crumb" href={crumb[1]}>← {crumb[0]}</a>}
+    <h1>{title}</h1>
+    {lede && <p class="lede">{lede}</p>}
+    <slot />
+  </div>
+</section>

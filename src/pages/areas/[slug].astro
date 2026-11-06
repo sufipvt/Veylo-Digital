@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Close from '../../components/Close.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  return (await getCollection('areas')).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, line, points } = entry.data;
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title={`Real estate marketing in ${title}`} description={`Property shoots, drone footage and social media for real estate agents and firms in ${title}. ${line}`} waText={`Hi Veylo, I'm an agent in ${title}.`}>
+  <PageHero title={`Real estate marketing in ${title}`} lede={line} crumb={['All areas', '/#areas']} />
+  <section class="sec" style="padding-top:24px">
+    <div class="wrap split">
+      <div class="prose"><Content /></div>
+      <div><h2 class="h3" style="margin-bottom:18px">What we focus on in {title}</h2><ul class="points">{points.map((p) => <li>{p}</li>)}</ul></div>
+    </div>
+    <div class="wrap" style="margin-top:72px">
+      <h2 class="h3" style="margin-bottom:18px">Services in {title}</h2>
+      <ul class="points cards2">{services.map((s) => <li><a href={`/services/${s.id}`}>{s.data.title}</a></li>)}</ul>
+    </div>
+  </section>
+  <Close title={`Grow your listings in ${title}`} source={`area-${entry.id}`} waText={`Hi Veylo, I'm an agent in ${title}.`} />
+</Base>

@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Close from '../components/Close.astro';
+const pillars = [
+  ['Strategic marketing', 'Every shoot and post starts from a plan built around your listings, your area and your buyers.'],
+  ['Creative solutions', 'Cinematic visuals and content that make your properties look like the best option in the market.'],
+  ['Real growth', 'We report on enquiries and listings won, not just likes.'],
+  ['Long-term partnerships', 'Agents and firms grow with us month after month, because the content keeps working.'],
+];
+---
+<Base title="About" description="Veylo Digital is a premium digital marketing agency for real estate agents and firms in Delhi NCR and Uttarakhand.">
+  <PageHero title="Where vision meets digital evolution" lede="Veylo Digital is a premium digital marketing agency dedicated to helping brands grow, connect and achieve more in the digital world." />
+  <section class="sec" style="padding-top:24px">
+    <div class="wrap split">
+      <h2>Built for real estate</h2>
+      <div class="prose">
+        <p>We combine strategy, creativity and data-driven insights to build a powerful online presence and turn ideas into measurable results.</p>
+        <p>We focus on one industry: real estate. Agents and firms across Delhi, Noida, Greater Noida, Gurgaon and Uttarakhand work with us to shoot their listings, run their social media and build brands that win more mandates.</p>
+        <p class="motto" style="margin-top:28px">Build · Grow · Scale</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="cards2">{pillars.map(([t, d]) => <div class="who"><article><h3>{t}</h3><p>{d}</p></article></div>)}</div>
+    </div>
+  </section>
+  <Close source="about" />
+</Base>

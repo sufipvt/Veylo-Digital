@@ -1,0 +1,15 @@
+---
+// The swoosh from the Veylo V: a tapered crescent, lit electric blue.
+const { class: cls = '' } = Astro.props;
+const id = 'arc' + Math.random().toString(36).slice(2, 7);
+---
+<svg class:list={['arc', cls]} viewBox="0 0 1200 520" aria-hidden="true">
+  <defs>
+    <linearGradient id={id} x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0b3fa8" stop-opacity="0" />
+      <stop offset=".45" stop-color="#1f7bff" />
+      <stop offset="1" stop-color="#8cc4ff" />
+    </linearGradient>
+  </defs>
+  <path d="M0 500C260 420 640 250 1160 30c26-10 44 2 22 22C760 330 330 470 0 520z" fill={`url(#${id})`} />
+</svg>
