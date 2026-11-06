@@ -21,7 +21,7 @@ export async function onRequestPost({ request, env }) {
   const utm = new URL(request.headers.get('Referer') || request.url).searchParams;
   lead.source += ['utm_source', 'utm_medium', 'utm_campaign'].map((k) => (utm.get(k) ? ` ${k}=${clean(utm.get(k), 60)}` : '')).join('');
 
-  if (!lead.name || !/^[0-9+ ()-]{10,16}$/.test(lead.phone) || f.get('consent') !== 'on')
+  if (!lead.name || !/^[0-9+ ()-]{10,16}$/.test(String(f.get('phone') ?? '').trim()) || f.get('consent') !== 'on')
     return new Response('Please add your name, a valid phone number and your consent, then try again.', { status: 400 });
 
   const res = await fetch(env.SHEET_URL, { method: 'POST', body: JSON.stringify({ secret: env.SHEET_SECRET, ...lead }) });
