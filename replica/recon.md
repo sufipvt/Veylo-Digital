@@ -1,4 +1,4 @@
-# Recon map: Veylo Digital
+# Recon map: Veylo Media
 
 Recon date: 2026-11-06. References: click72.com and markitup.in, read from public pages only. Screenshots couldn't be taken because the sandbox network blocks both sites.
 Goal: a lean marketing site that wins retainers from real estate agents and firms in Delhi NCR and Uttarakhand.

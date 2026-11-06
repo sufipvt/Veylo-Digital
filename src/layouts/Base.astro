@@ -3,7 +3,6 @@ import '../styles/global.css';
 import { Image } from 'astro:assets';
 import Icon from '../components/Icon.astro';
 import vMark from '../assets/v-mark.png';
-import logo from '../assets/logo-full.png';
 import { site, nav, wa } from '../site';
 import { getCollection } from 'astro:content';
 
@@ -26,7 +25,7 @@ const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   <meta property="og:title" content={full} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content={new URL("/brand/about-us.png", Astro.site)} />
+  <meta property="og:image" content={new URL("/og.jpg", Astro.site)} />
   <meta name="theme-color" content="#04050a" />
   <link rel="icon" href="/favicon.png" />
   <script type="application/ld+json" set:html={JSON.stringify(ld)} />
@@ -36,9 +35,9 @@ const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   <a class="skip" href="#main">Skip to content</a>
   <header class="hd">
     <div class="wrap">
-      <a class="brand" href="/" aria-label="Veylo Digital home">
+      <a class="brand" href="/" aria-label="Veylo Media home">
         <Image src={vMark} alt="" width={92} loading="eager" />
-        <span><b>VEYLO</b><small>DIGITAL</small></span>
+        <span><b>VEYLO</b><small>MEDIA</small></span>
       </a>
       <input class="sr" type="checkbox" id="menu" aria-label="Open menu" /><label class="btn menu" for="menu" aria-hidden="true"><Icon name="menu" /> Menu</label>
       <nav class="nav" id="nav" aria-label="Main">
@@ -52,7 +51,7 @@ const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     <div class="wrap">
       <div class="ft-grid">
         <div>
-          <Image class="ft-logo" src={logo} alt="Veylo Digital" width={300} />
+          <a class="brand ft-brand" href="/" aria-label="Veylo Media home"><Image src={vMark} alt="" width={92} /><span><b>VEYLO</b><small>MEDIA</small></span></a>
           <p>{site.tagline}.</p>
           <p class="motto">Build · Grow · Scale</p>
         </div>
@@ -66,7 +65,7 @@ const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
           <li><a href="/privacy">Privacy</a></li>
         </ul></div>
       </div>
-      <div class="ft-base"><span>© {new Date().getFullYear()} Veylo Digital</span><span>Real estate marketing for Delhi NCR and Uttarakhand</span></div>
+      <div class="ft-base"><span>© {new Date().getFullYear()} Veylo Media</span><span>Real estate marketing for Delhi NCR and Uttarakhand</span></div>
     </div>
   </footer>
   <a class="wa" href={wa(waText)} aria-label="Chat with Veylo on WhatsApp"><Icon name="whatsapp" /></a>

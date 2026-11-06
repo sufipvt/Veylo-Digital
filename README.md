@@ -1,6 +1,6 @@
-# Veylo Digital
+# Veylo Media
 
-Marketing website for Veylo Digital, a real estate marketing agency for Delhi NCR and Uttarakhand. Built with Astro as static pages, plain CSS and one serverless function.
+Marketing website for Veylo Media, a real estate marketing agency for Delhi NCR and Uttarakhand. Built with Astro as static pages, plain CSS and one serverless function.
 
 ## Run locally
 

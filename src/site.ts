@@ -1,10 +1,10 @@
 // Owner-supplied details. Replace the placeholders before launch.
 export const site = {
-  name: 'Veylo Digital',
+  name: 'Veylo Media',
   tagline: 'Where Vision Meets Digital Evolution',
   whatsapp: '910000000000', // TODO(owner): WhatsApp number with country code, digits only
   phone: '+91 00000 00000', // TODO(owner)
-  email: 'hello@veylodigital.example', // TODO(owner)
+  email: 'hello@veylomedia.example', // TODO(owner)
   areas: ['Delhi', 'Noida', 'Greater Noida', 'Gurgaon', 'Uttarakhand'],
 };
 

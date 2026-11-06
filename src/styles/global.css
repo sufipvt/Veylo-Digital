@@ -223,7 +223,7 @@ figcaption, .tag { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: u
 .ft ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .ft a { text-decoration: none; color: var(--silver); }
 .ft a:hover { color: var(--blue-hi); }
-.ft-logo { width: 150px; margin-bottom: 18px; }
+.ft-brand { margin-bottom: 20px; }
 .motto { font: 400 0.72rem/1 var(--display); letter-spacing: 0.32em; color: var(--blue-hi); text-transform: uppercase; }
 .ft-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
 @media (max-width: 860px) { .ft-grid { grid-template-columns: 1fr 1fr; } .ft-grid > :first-child { grid-column: 1 / -1; } }

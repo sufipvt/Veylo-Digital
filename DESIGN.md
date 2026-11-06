@@ -1,5 +1,5 @@
 ---
-name: Veylo Digital
+name: Veylo Media
 description: Blue-hour property marketing for real estate agents and firms in Delhi NCR and Uttarakhand.
 colors:
   ground: "#04050a"
@@ -100,7 +100,7 @@ components:
     size: "58px"
 ---
 
-# Design System: Veylo Digital
+# Design System: Veylo Media
 
 ## Overview
 
@@ -220,7 +220,7 @@ There are three corner families. Pill shapes (999px) are for actions, chips, and
 
 ### Imagery & Assets
 - The renders in `src/assets/renders/` are three.js sample renders that we authored. Each one is labelled "Sample" on the site until the owner supplies real footage.
-- `public/brand/` holds the owner's original logo and About Us graphic.
+- `brand/` holds the owner's original logo and About Us graphic.
 - Every raster under `src/assets/` and `public/` carries its origin as an embedded PNG tEXt chunk (`impeccable embed-prompt`). `embed-prompt --scan src/assets public` reports 0 missing. New rasters must be embedded before they ship.
 
 ## Do's and Don'ts
