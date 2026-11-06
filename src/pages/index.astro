@@ -11,6 +11,7 @@ import dusk from '../assets/renders/tower-dusk.png';
 import lit from '../assets/renders/tower-lit.png';
 import aerial from '../assets/renders/aerial.png';
 import street from '../assets/renders/street.png';
+import villa from '../assets/renders/villa.png';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const areas = (await getCollection('areas')).sort((a, b) => a.data.order - b.data.order);
@@ -32,7 +33,7 @@ const faq = [
     <span class="sample">Sample render</span>
     <Arc />
     <div class="wrap">
-      <h1>Make every listing impossible to scroll past</h1>
+      <h1><span>Make every listing</span> <span>impossible to</span> <span>scroll past</span></h1>
       <p class="lede">Cinematic shoots, drone footage and social content for real estate agents and firms across Delhi NCR and Uttarakhand.</p>
       <div class="hero-cta">
         <a class="btn" href={wa()}><Icon name="whatsapp" /> Chat on WhatsApp</a>
@@ -89,7 +90,7 @@ const faq = [
       <div class="reel">
         <figure class="frame"><Image src={lit} alt="Tower at blue hour, lights on" widths={[600, 1000]} sizes="(max-width: 860px) 100vw, 58vw" /><figcaption>Sample · twilight exterior</figcaption></figure>
         <figure class="frame"><Image src={street} alt="Street-level view of lit towers" widths={[600, 900]} sizes="(max-width: 860px) 100vw, 40vw" /><figcaption>Sample · street approach</figcaption></figure>
-        <figure class="frame"><Image src={aerial} alt="Aerial view of towers and roads" widths={[600, 900]} sizes="(max-width: 860px) 100vw, 40vw" /><figcaption>Sample · aerial location</figcaption></figure>
+        <figure class="frame"><Image src={villa} alt="Hillside villa with lit glass walls and a pool at dusk" widths={[600, 900]} sizes="(max-width: 860px) 100vw, 40vw" /><figcaption>Sample · hill villa at dusk</figcaption></figure>
       </div>
     </div>
   </section>
@@ -117,7 +118,7 @@ const faq = [
   <section class="sec faq" style="padding-top:0">
     <div class="wrap split">
       <h2>Questions agents ask us</h2>
-      <div>{faq.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</div>
+      <div>{faq.map(([q, a]) => <details><summary>{q}<Icon name="plus" /></summary><p>{a}</p></details>)}</div>
     </div>
   </section>
 

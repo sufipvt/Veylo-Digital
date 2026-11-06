@@ -7,9 +7,10 @@ const id = 'arc' + Math.random().toString(36).slice(2, 7);
   <defs>
     <linearGradient id={id} x1="0" y1="1" x2="1" y2="0">
       <stop offset="0" stop-color="#0b3fa8" stop-opacity="0" />
-      <stop offset=".45" stop-color="#1f7bff" />
-      <stop offset="1" stop-color="#8cc4ff" />
+      <stop offset=".5" stop-color="#1f7bff" stop-opacity=".45" />
+      <stop offset=".82" stop-color="#3d93ff" />
+      <stop offset="1" stop-color="#9ccdff" />
     </linearGradient>
   </defs>
-  <path d="M0 500C260 420 640 250 1160 30c26-10 44 2 22 22C760 330 330 470 0 520z" fill={`url(#${id})`} />
+  <path d="M0 512C420 500 820 360 1150 40c22-20 50-14 32 10C900 410 450 520 0 520z" fill={`url(#${id})`} />
 </svg>

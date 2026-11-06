@@ -7,11 +7,13 @@ import lit from '../assets/renders/tower-lit.png';
 import dusk from '../assets/renders/tower-dusk.png';
 import aerial from '../assets/renders/aerial.png';
 import street from '../assets/renders/street.png';
+import villa from '../assets/renders/villa.png';
 // TODO(owner): replace these sample renders with real shoots, drone stills and reel posters.
 const work = [
   { img: lit, cat: 'Shoots', title: 'Twilight exterior', alt: 'Glass tower at blue hour, lights on' },
   { img: aerial, cat: 'Drone', title: 'Aerial location shot', alt: 'Aerial view of towers and lit roads' },
   { img: street, cat: 'Shoots', title: 'Street approach', alt: 'Street-level view of lit towers' },
+  { img: villa, cat: 'Shoots', title: 'Hill villa at dusk', alt: 'Hillside villa with lit glass walls and a pool' },
   { img: dusk, cat: 'Social', title: 'Reel opening frame', alt: 'Tower at dusk before the lights come on' },
 ];
 const cats = ['All', 'Shoots', 'Drone', 'Social'];
@@ -43,7 +45,7 @@ const cats = ['All', 'Shoots', 'Drone', 'Social'];
   .filters input:focus-visible + label { outline: 2px solid var(--blue-hi); outline-offset: 3px; }
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .grid .frame { aspect-ratio: 4 / 3; margin: 0; }
-  .grid figcaption { position: absolute; left: 18px; bottom: 16px; margin: 0; color: var(--silver-hi); text-shadow: 0 1px 12px #000; }
+  .grid .frame:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 8; }
   .work:has(#f-Shoots:checked) .frame:not([data-cat='Shoots']),
   .work:has(#f-Drone:checked) .frame:not([data-cat='Drone']),
   .work:has(#f-Social:checked) .frame:not([data-cat='Social']) { display: none; }

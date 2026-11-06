@@ -7,7 +7,7 @@ points:
   - Location flyovers showing roads, metro, schools and landmarks
   - Construction progress shoots for under-construction projects
   - Plot and land boundary footage for Uttarakhand and NCR plots
-  - Every flight planned in line with DGCA drone rules and local permissions
+  - Shot lists planned around the plot, the light and the neighbourhood
 ---
 Location sells property, and nothing shows location like an aerial. One drone shot answers the question every buyer asks first: what is around it?
 
