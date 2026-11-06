@@ -97,7 +97,8 @@ strong { color: var(--silver-hi); font-weight: 600; }
   .hero .lede { margin-top: 14px; font-size: 1.02rem; }
   .hero-cta { margin: 18px 0 22px; }
   .hero-cta .btn + .btn { display: none; }
-  .sample { top: calc(50svh - 34px); bottom: auto; right: var(--gut); }
+  .sample { top: 88px; bottom: auto; right: var(--gut); }
+  .hero .consent { margin-bottom: 64px; }
 }
 
 /* Band form (from the brand graphic's bottom bar) */
