@@ -1,0 +1,31 @@
+feature,area,priority,original,clone,notes
+Hero with video poster and 2 CTAs,home,must,click72,no,Click-to-play video facade; no autoplay mp4
+Stats strip,home,should,both,no,Real numbers only; placeholders marked
+Problem and solution for agents and firms,home,must,veylo,no,Real estate positioning
+Service cards (5),home,must,click72,no,Shoots; drone; social; content; influencer
+Work strip,home,must,markitup,no,
+Process Build Grow Scale,home,must,click72,no,4 steps on click72; 3 in Veylo brand
+Testimonials,home,should,both,no,Placeholders until real ones
+Areas served,home,must,veylo,no,Delhi; Noida; Greater Noida; Gurgaon; Uttarakhand
+FAQ accordion,home,should,click72,no,Native details element
+CTA band,global,must,click72,no,
+Services hub page,services,must,click72,no,
+Service page template x5,services,must,click72,no,Markdown driven
+Area page template x5,seo,must,veylo,no,Local SEO
+Work page with working filters,work,must,both,no,Filters actually filter
+Case study page,work,could,click72,no,Phase 2
+About page,about,must,click72,no,Uses brand graphic content
+Contact page and lead form,contact,must,click72,no,One form; one contact URL
+Thank-you page,contact,must,veylo,no,Conversion tracking
+Floating WhatsApp button,global,must,veylo,no,Prefilled message per page
+Click-to-call in header on mobile,global,must,click72,no,
+Lead to Google Sheet via Apps Script,backend,must,veylo,no,
+Gmail notification,backend,must,veylo,no,
+Turnstile and honeypot,security,must,veylo,no,
+Security headers,security,must,veylo,no,
+Privacy page (DPDP),legal,must,veylo,no,
+Download brochure CTA,home,could,markitup,no,PDF when available
+SEO meta; OG; sitemap; LocalBusiness schema,seo,must,veylo,no,
+404 page,global,should,veylo,no,
+Careers modal with resume upload,contact,skip,click72,no,Out of scope
+Click72 and MarkitUp content and media,content,skip,both,no,Never copied
