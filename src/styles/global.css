@@ -13,7 +13,6 @@
   --silver-hi: #eef1f5;
   --muted: #9aa3b2;
   --line: rgb(201 206 214 / 0.14);
-  --warm: #f3c98b;
   --display: 'Michroma', 'Eurostile', sans-serif;
   --body: 'Manrope Variable', 'Segoe UI', sans-serif;
   --wrap: 1240px;
@@ -157,7 +156,7 @@ figcaption, .tag { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: u
 @media (max-width: 860px) { .reel { grid-template-columns: 1fr; grid-template-rows: none; height: auto; } .reel .frame { aspect-ratio: 16 / 10; } .reel .frame:first-child { grid-row: auto; aspect-ratio: 4 / 5; } }
 
 /* Process */
-.steps { padding: 0; margin: 72px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: 72px; position: relative; }
+.steps { padding: 0; margin: 72px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 56px); position: relative; }
 .steps::before { content: ''; position: absolute; left: 0; right: 0; top: 11px; height: 1px; background: linear-gradient(90deg, var(--blue), var(--blue-hi) 50%, transparent); }
 .steps li { list-style: none; position: relative; padding-top: 48px; }
 .steps li::before { content: ''; position: absolute; top: 4px; left: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--ground); border: 2px solid var(--blue-hi); box-shadow: 0 0 0 6px var(--ground); }
@@ -207,9 +206,8 @@ figcaption, .tag { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: u
 /* Page hero (inner pages) */
 .phero { padding-block: 170px clamp(56px, 8vw, 96px); background: linear-gradient(180deg, var(--sky), var(--ground)); position: relative; overflow: hidden; isolation: isolate; }
 .phero .arc { right: -2%; bottom: 10%; width: min(48vw, 700px); opacity: 0.75; }
-.phero .lede { max-width: 48ch; }
 @media (max-width: 860px) { .phero .arc { width: 70vw; bottom: auto; top: 60px; opacity: 0.45; } }
-.phero .lede { margin-top: 22px; }
+.phero .lede { margin-top: 22px; max-width: 48ch; }
 .crumb { font-size: 0.85rem; color: var(--muted); margin-bottom: 26px; display: inline-flex; align-items: center; gap: 8px; }
 .crumb .back { width: 16px; transform: scaleX(-1); }
 .points { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
