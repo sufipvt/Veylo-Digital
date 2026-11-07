@@ -20,7 +20,7 @@ const cats = ['All', 'Shoots', 'Drone', 'Social'];
 ---
 <Base title="Work" description="The look we shoot for: twilight exteriors, aerials and reels for real estate agents and firms.">
   <PageHero title="The look we shoot for" lede="These are sample renders that show the style we deliver. Our client work will appear here as projects go live." />
-  <section class="sec work" style="padding-top:24px">
+  <section class="sec work">
     <div class="wrap">
       <div class="filters" role="group" aria-label="Filter work">
         {cats.map((c, i) => <><input type="radio" name="f" id={`f-${c}`} checked={i === 0} /><label class="btn" for={`f-${c}`}>{c}</label></>)}

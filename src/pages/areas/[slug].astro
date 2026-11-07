@@ -13,7 +13,7 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
 ---
 <Base title={`Real estate marketing in ${title}`} description={`Property shoots, drone footage and social media for real estate agents and firms in ${title}. ${line}`} waText={`Hi Veylo, I'm an agent in ${title}.`}>
   <PageHero title={`Real estate marketing in ${title}`} lede={line} crumb={['All areas', '/#areas']} />
-  <section class="sec" style="padding-top:24px">
+  <section class="sec">
     <div class="wrap split">
       <div class="prose"><Content /></div>
       <div><h2 class="h3" style="margin-bottom:18px">What we focus on in {title}</h2><ul class="points">{points.map((p) => <li>{p}</li>)}</ul></div>
