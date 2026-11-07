@@ -18,7 +18,6 @@ const areas = (await getCollection('areas')).sort((a, b) => a.data.order - b.dat
 const art = [twilight, aerial, street, villa, dusk];
 const icons = ['shoots', 'drone', 'social', 'content', 'influencer'];
 const ticker = [...services.map((s) => s.data.title), ...areas.map((a) => a.data.title)];
-const facts = [[5, 'services under one roof'], [5, 'regions we shoot in'], [1, 'monthly report on enquiries'], [20, 'minutes of blue hour we plan around']];
 const faq = [
   ['Do you only work with real estate?', 'Yes. We work only with real estate agents and firms, so every shoot, post and campaign is built for buyers and sellers of property.'],
   ['Which areas do you cover?', 'Delhi, Noida, Greater Noida, Gurgaon and Uttarakhand. For a larger project elsewhere, ask us on WhatsApp.'],
@@ -47,13 +46,6 @@ const faq = [
   <div class="ticker" aria-label="Services and areas">
     {[0, 1].map((n) => <ul aria-hidden={n ? 'true' : undefined}>{ticker.map((t) => <li>{t}</li>)}</ul>)}
   </div>
-
-  <section class="sec facts-sec">
-    <div class="wrap">
-      <h2 class="sr">Veylo in numbers</h2>
-      <ul class="facts">{facts.map(([n, t]) => <li class="rise"><b style={`--to:${n}`}>{n}</b><span>{t}</span></li>)}</ul>
-    </div>
-  </section>
 
   <section class="sec">
     <div class="wrap split">
@@ -110,7 +102,7 @@ const faq = [
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec quiet">
     <div class="wrap">
       <h2 class="rise">How we work</h2>
       <ol class="steps">
@@ -121,7 +113,7 @@ const faq = [
     </div>
   </section>
 
-  <section class="sec" id="areas">
+  <section class="sec quiet" id="areas">
     <div class="wrap">
       <h2 class="rise">Where we shoot</h2>
       <div class="areas">
