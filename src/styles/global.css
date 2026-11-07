@@ -250,7 +250,7 @@ figcaption, .tag { font-size: 0.75rem; font-stretch: 112%; letter-spacing: 0.08e
 .wa:hover { background: #0f56c8; }
 .wa svg { width: 28px; height: 28px; }
 @supports (animation-timeline: scroll()) {
-  body:has(.hero) .wa { animation: wa-in linear both; } body:has(.hero) > .wa { animation-timeline: scroll(root); animation-range: 60svh 90svh; }
+  @media (prefers-reduced-motion: no-preference) { body:has(.hero) .wa { animation: wa-in linear both; } body:has(.hero) > .wa { animation-timeline: scroll(root); animation-range: 60svh 90svh; } }
 }
 @keyframes wa-in { from { opacity: 0; visibility: hidden; transform: scale(0.6); } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; } }
