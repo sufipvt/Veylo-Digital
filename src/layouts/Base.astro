@@ -11,7 +11,7 @@ const path = Astro.url.pathname.replace(/(index)?\.html$/, '');
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const areas = (await getCollection('areas')).sort((a, b) => a.data.order - b.data.order);
 const full = title ? `${title} | ${site.name}` : `${site.name}: Real estate marketing in Delhi NCR & Uttarakhand`;
-const ld = { '@context': 'https://schema.org', '@type': 'ProfessionalService', name: site.name, slogan: site.tagline, url: Astro.site, telephone: site.phone, email: site.email, areaServed: site.areas, knowsAbout: services.map((s) => s.data.title) };
+const ld = { '@context': 'https://schema.org', '@type': 'ProfessionalService', name: site.name, slogan: site.tagline, url: Astro.site, telephone: site.phone || undefined, email: site.email || undefined, areaServed: site.areas, knowsAbout: services.map((s) => s.data.title) };
 const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 <!doctype html>
@@ -60,8 +60,8 @@ const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         <div><h3>Areas</h3><ul>{areas.map((a) => <li><a href={`/areas/${a.id}`}>{a.data.title}</a></li>)}</ul></div>
         <div><h3>Talk to us</h3><ul>
           <li><a href={wa(waText)}>WhatsApp</a></li>
-          <li><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></li>
-          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          {site.phone && <li><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></li>}
+          {site.email && <li><a href={`mailto:${site.email}`}>{site.email}</a></li>}
           <li><a href="/about">About</a></li>
           <li><a href="/privacy">Privacy</a></li>
         </ul></div>
