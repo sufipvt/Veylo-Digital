@@ -11,8 +11,8 @@ import { site, wa } from '../site';
     <div class="wrap contact-grid">
       <div class="reach" style="margin-top:0">
         <a class="btn btn-blue" href={wa()}><Icon name="whatsapp" /> Chat on WhatsApp</a>
-        <a class="btn" href={`tel:${site.phone.replace(/\s/g, '')}`}><Icon name="phone" /> {site.phone}</a>
-        <a class="btn" href={`mailto:${site.email}`}><Icon name="mail" /> {site.email}</a>
+        {site.phone && <a class="btn" href={`tel:${site.phone.replace(/\s/g, '')}`}><Icon name="phone" /> {site.phone}</a>}
+        {site.email && <a class="btn" href={`mailto:${site.email}`}><Icon name="mail" /> {site.email}</a>}
         <p style="margin-top:24px;color:var(--muted)">Serving {site.areas.join(', ')}.</p>
       </div>
       <LeadForm variant="full" source="contact" />

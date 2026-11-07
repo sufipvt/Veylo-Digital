@@ -15,8 +15,6 @@ import dusk from '../assets/renders/tower-dusk.png';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const areas = (await getCollection('areas')).sort((a, b) => a.data.order - b.data.order);
-const art = [twilight, aerial, street, villa, dusk];
-const icons = ['shoots', 'drone', 'social', 'content', 'influencer'];
 const ticker = [...services.map((s) => s.data.title), ...areas.map((a) => a.data.title)];
 const faq = [
   ['Do you only work with real estate?', 'Yes. We work only with real estate agents and firms, so every shoot, post and campaign is built for buyers and sellers of property.'],
@@ -29,7 +27,7 @@ const faq = [
 <Base description="Cinematic property shoots, drone footage, social media, content and influencer marketing for real estate agents and firms in Delhi NCR and Uttarakhand.">
   <section class="hero">
     <div class="show" aria-hidden="true">
-      {[lit, twilight, street, villa].map((img, i) => <Image src={img} alt="" widths={[800, 1400, 2000]} sizes="100vw" loading={i ? 'lazy' : 'eager'} fetchpriority={i ? 'auto' : 'high'} />)}
+      {[lit, aerial].map((img, i) => <Image src={img} alt="" widths={[800, 1400, 2000]} sizes="100vw" loading={i ? 'lazy' : 'eager'} fetchpriority={i ? 'auto' : 'high'} />)}
     </div>
     <div class="wrap hero-in">
       <h1 class="lines"><span><span>Make every listing</span></span> <span><span>impossible to</span></span> <span><span class="hl">scroll past</span></span></h1>
@@ -52,13 +50,11 @@ const faq = [
       <h2 class="rise">Most listings look the same. <span class="hl">Yours shouldn't.</span></h2>
       <div class="who">
         <article class="rise">
-          <Icon name="shoots" class="ic" />
           <h3>For agents</h3>
           <p>Your listings sit next to a hundred others with the same dim photos. You know you should post every week, but site visits and calls come first.</p>
           <p>We shoot your listings so buyers stop scrolling, and we run your social media so sellers remember your name when they're ready.</p>
         </article>
         <article class="rise">
-          <Icon name="content" class="ic" />
           <h3>For real estate firms</h3>
           <p>Every agent shoots differently, every page looks different, and nobody can say what the content is actually bringing in.</p>
           <p>We give the whole firm one visual standard, one content calendar and one monthly report on reach, enquiries and listings won.</p>
@@ -76,9 +72,9 @@ const faq = [
       <ol class="bento">
         {services.map((s, i) => (
           <li class="rise"><a class="tile" href={`/services/${s.id}`}>
-            <Image src={art[i]} alt="" widths={[500, 900]} sizes={i ? '(max-width: 860px) 100vw, 33vw' : '(max-width: 860px) 100vw, 66vw'} />
+            {!i && <Image src={dusk} alt="" widths={[500, 900]} sizes="(max-width: 860px) 100vw, 40vw" />}
+            <span class="tile-n">{String(i + 1).padStart(2, '0')}</span>
             <span class="tile-in">
-              <Icon name={icons[i]} class="ic" />
               <h3>{s.data.title}</h3>
               <p>{s.data.line}</p>
               <span class="more">Explore <Icon name="arrow" /></span>
