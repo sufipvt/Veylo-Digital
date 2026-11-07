@@ -6,7 +6,7 @@ import vMark from '../assets/v-mark.png';
 import { site, nav, wa } from '../site';
 import { getCollection } from 'astro:content';
 
-const { title, description, waText } = Astro.props;
+const { title, description, waText, floor } = Astro.props;
 const path = Astro.url.pathname.replace(/(index)?\.html$/, '');
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const areas = (await getCollection('areas')).sort((a, b) => a.data.order - b.data.order);
@@ -26,7 +26,7 @@ const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
   <meta property="og:image" content={new URL("/og.jpg", Astro.site)} />
-  <meta name="theme-color" content="#04050a" />
+  <meta name="theme-color" content="#07080b" />
   <link rel="icon" href="/favicon.png" />
   <script type="application/ld+json" set:html={JSON.stringify(ld)} />
   {turnstile && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
@@ -39,6 +39,7 @@ const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         <Image src={vMark} alt="" width={92} loading="eager" />
         <span><b>VEYLO</b><small>MEDIA</small></span>
       </a>
+      <span class="lift" aria-hidden="true" style={floor ? `--floor-at:${floor}` : undefined}><Icon name="arrow" /><b></b></span>
       <input class="sr" type="checkbox" id="menu" aria-label="Open menu" /><label class="btn menu" for="menu" aria-hidden="true"><Icon name="menu" /> Menu</label>
       <nav class="nav" id="nav" aria-label="Main">
         {nav.map(([label, href]) => <a href={href} aria-current={path.startsWith(href) && href !== '/#areas' ? 'page' : undefined}>{label}</a>)}

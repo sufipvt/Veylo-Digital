@@ -5,20 +5,21 @@ import Icon from '../../components/Icon.astro';
 import Close from '../../components/Close.astro';
 import { getCollection } from 'astro:content';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
-const icons = ['shoots', 'drone', 'social', 'content', 'influencer'];
 ---
 <Base title="Services" description="Property shoots, drone shoots, social media management, content marketing and influencer marketing for real estate agents and firms.">
   <PageHero title="Everything your listings need to sell" lede="Five services, one goal: more enquiries and more listings for real estate agents and firms in Delhi NCR and Uttarakhand." />
-  <section class="sec" style="padding-top:24px">
-    <div class="wrap svc" style="grid-template-columns:1fr;margin-top:0">
-      <h2 class="sr">All services</h2>
-      <ol>
-        {services.map((s, i) => (
-          <li><a href={`/services/${s.id}`}>
-            <Icon name={icons[i]} class="ic" /><h3>{s.data.title}</h3><p>{s.data.line}</p><Icon name="arrow" class="go" />
-          </a></li>
-        ))}
-      </ol>
+  <section class="sec">
+    <div class="wrap">
+      <nav class="board" aria-label="Services" style="margin-top:0">
+        <div class="board-hd" aria-hidden="true"><span>Floor</span><span>Service</span><span>What you get</span></div>
+        <ol>
+          {services.map((s, i) => (
+            <li><a href={`/services/${s.id}`}>
+              <span class="fl" aria-hidden="true">{i + 1}</span><h3>{s.data.title}</h3><p>{s.data.line}</p><Icon name="arrow" class="go" />
+            </a></li>
+          ))}
+        </ol>
+      </nav>
     </div>
   </section>
   <Close source="services" />

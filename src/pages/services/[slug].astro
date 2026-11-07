@@ -6,13 +6,19 @@ import { getCollection, render } from 'astro:content';
 export async function getStaticPaths() {
   return (await getCollection('services')).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
 }
+import twilight from '../../assets/renders/twilight.png';
+import aerial from '../../assets/renders/aerial.png';
+import street from '../../assets/renders/street.png';
+import villa from '../../assets/renders/villa.png';
+import dusk from '../../assets/renders/tower-dusk.png';
 const { entry } = Astro.props;
+const art = { 'property-shoots': [twilight, 'Glass tower at blue hour seen from across the street'], 'drone-shoots': [aerial, 'Aerial view of a lit township grid at night'], 'social-media-management': [street, 'Street-level view of lit towers'], 'content-marketing': [villa, 'Hillside villa with lit glass walls at dusk'], 'influencer-marketing': [dusk, 'Residential tower at dusk'] }[entry.id];
 const { Content } = await render(entry);
 const { title, line, points } = entry.data;
 ---
-<Base title={`${title} for real estate`} description={line} waText={`Hi Veylo, I'm interested in ${title.toLowerCase()}.`}>
-  <PageHero title={title} lede={line} crumb={['All services', '/services']} />
-  <section class="sec" style="padding-top:24px">
+<Base floor={entry.data.order} title={`${title} for real estate`} description={line} waText={`Hi Veylo, I'm interested in ${title.toLowerCase()}.`}>
+  <PageHero title={title} lede={line} crumb={['All services', '/services']} img={art?.[0]} alt={art?.[1]} />
+  <section class="sec">
     <div class="wrap split">
       <div class="prose"><Content /></div>
       <div><h2 class="h3" style="margin-bottom:18px">What you get</h2><ul class="points">{points.map((p) => <li>{p}</li>)}</ul></div>

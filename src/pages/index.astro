@@ -1,22 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
-import Arc from '../components/Arc.astro';
 import Icon from '../components/Icon.astro';
 import LeadForm from '../components/LeadForm.astro';
 import Close from '../components/Close.astro';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { wa } from '../site';
-import dusk from '../assets/renders/tower-dusk.png';
 import lit from '../assets/renders/tower-lit.png';
-import aerial from '../assets/renders/aerial.png';
 import street from '../assets/renders/street.png';
 import villa from '../assets/renders/villa.png';
 import twilight from '../assets/renders/twilight.png';
+import aerial from '../assets/renders/aerial.png';
+import dusk from '../assets/renders/tower-dusk.png';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const areas = (await getCollection('areas')).sort((a, b) => a.data.order - b.data.order);
+const art = [twilight, aerial, street, villa, dusk];
 const icons = ['shoots', 'drone', 'social', 'content', 'influencer'];
+const ticker = [...services.map((s) => s.data.title), ...areas.map((a) => a.data.title)];
+const facts = [[5, 'services under one roof'], [5, 'regions we shoot in'], [1, 'monthly report on enquiries'], [20, 'minutes of blue hour we plan around']];
 const faq = [
   ['Do you only work with real estate?', 'Yes. We work only with real estate agents and firms, so every shoot, post and campaign is built for buyers and sellers of property.'],
   ['Which areas do you cover?', 'Delhi, Noida, Greater Noida, Gurgaon and Uttarakhand. For a larger project elsewhere, ask us on WhatsApp.'],
@@ -27,33 +29,44 @@ const faq = [
 ---
 <Base description="Cinematic property shoots, drone footage, social media, content and influencer marketing for real estate agents and firms in Delhi NCR and Uttarakhand.">
   <section class="hero">
-    <div class="hero-tower">
-      <Image src={dusk} alt="" widths={[800, 1200, 1600]} sizes="(max-width: 860px) 100vw, 62vw" loading="eager" fetchpriority="high" />
-      <Image class="lit" src={lit} alt="A glass residential tower at blue hour with its windows lit" widths={[800, 1200, 1600]} sizes="(max-width: 860px) 100vw, 62vw" loading="eager" />
+    <div class="show" aria-hidden="true">
+      {[lit, twilight, street, villa].map((img, i) => <Image src={img} alt="" widths={[800, 1400, 2000]} sizes="100vw" loading={i ? 'lazy' : 'eager'} fetchpriority={i ? 'auto' : 'high'} />)}
     </div>
-    <span class="sample">Sample render</span>
-    <Arc />
-    <div class="wrap">
-      <h1><span>Make every listing</span> <span>impossible to</span> <span>scroll past</span></h1>
+    <div class="wrap hero-in">
+      <h1 class="lines"><span><span>Make every listing</span></span> <span><span>impossible to</span></span> <span><span class="hl">scroll past</span></span></h1>
       <p class="lede">Cinematic shoots, drone footage and social content for real estate agents and firms across Delhi NCR and Uttarakhand.</p>
       <div class="hero-cta">
-        <a class="btn" href={wa()}><Icon name="whatsapp" /> Chat on WhatsApp</a>
-        <a class="btn" href="/work">See the look we shoot for</a>
+        <a class="btn btn-blue" href={wa()}><Icon name="whatsapp" /> Chat on WhatsApp</a>
+        <a class="btn btn-glass" href="/work">See the look we shoot for <Icon name="arrow" /></a>
       </div>
       <LeadForm source="home-hero" />
+    </div>
+    <span class="sample">Sample renders</span>
+  </section>
+
+  <div class="ticker" aria-label="Services and areas">
+    {[0, 1].map((n) => <ul aria-hidden={n ? 'true' : undefined}>{ticker.map((t) => <li>{t}</li>)}</ul>)}
+  </div>
+
+  <section class="sec facts-sec">
+    <div class="wrap">
+      <h2 class="sr">Veylo in numbers</h2>
+      <ul class="facts">{facts.map(([n, t]) => <li class="rise"><b style={`--to:${n}`}>{n}</b><span>{t}</span></li>)}</ul>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap split">
-      <h2 class="rise">Most listings look the same. <span class="blue">Yours shouldn't.</span></h2>
+      <h2 class="rise">Most listings look the same. <span class="hl">Yours shouldn't.</span></h2>
       <div class="who">
         <article class="rise">
+          <Icon name="shoots" class="ic" />
           <h3>For agents</h3>
           <p>Your listings sit next to a hundred others with the same dim photos. You know you should post every week, but site visits and calls come first.</p>
           <p>We shoot your listings so buyers stop scrolling, and we run your social media so sellers remember your name when they're ready.</p>
         </article>
         <article class="rise">
+          <Icon name="content" class="ic" />
           <h3>For real estate firms</h3>
           <p>Every agent shoots differently, every page looks different, and nobody can say what the content is actually bringing in.</p>
           <p>We give the whole firm one visual standard, one content calendar and one monthly report on reach, enquiries and listings won.</p>
@@ -62,53 +75,53 @@ const faq = [
     </div>
   </section>
 
-  <section class="sec" style="padding-top:0">
+  <section class="sec">
     <div class="wrap">
-      <h2 class="rise">Five ways we fill your pipeline</h2>
-      <div class="svc">
-        <ol>
-          {services.map((s, i) => (
-            <li class="rise"><a href={`/services/${s.id}`}>
+      <div class="sec-hd">
+        <h2 class="rise">Five ways we fill your pipeline</h2>
+        <a class="btn btn-glass rise" href="/services">All services <Icon name="arrow" /></a>
+      </div>
+      <ol class="bento">
+        {services.map((s, i) => (
+          <li class="rise"><a class="tile" href={`/services/${s.id}`}>
+            <Image src={art[i]} alt="" widths={[500, 900]} sizes={i ? '(max-width: 860px) 100vw, 33vw' : '(max-width: 860px) 100vw, 66vw'} />
+            <span class="tile-in">
               <Icon name={icons[i]} class="ic" />
               <h3>{s.data.title}</h3>
               <p>{s.data.line}</p>
-              <Icon name="arrow" class="go" />
-            </a></li>
-          ))}
-        </ol>
-        <figure>
-          <div class="frame" style="aspect-ratio:4/3"><Image src={aerial} alt="Aerial view of a lit township grid at night" widths={[600, 1000]} sizes="(max-width: 860px) 100vw, 45vw" /></div>
-          <figcaption>Sample render · aerial location shot</figcaption>
-        </figure>
-      </div>
+              <span class="more">Explore <Icon name="arrow" /></span>
+            </span>
+          </a></li>
+        ))}
+      </ol>
+      <p class="tag">Pictures are sample renders</p>
     </div>
   </section>
 
-  <section class="sec gal">
-    <Arc />
+  <section class="sec glow">
     <div class="wrap">
       <h2 class="rise">Shot for the hour<br />buildings look best</h2>
-      <p class="lede rise" style="margin-top:22px">Blue hour, the twenty minutes after sunset, is when glass glows and every window tells a story. We plan shoots around it.</p>
+      <p class="lede rise">Blue hour, the twenty minutes after sunset, is when glass glows and every window tells a story. We plan shoots around it.</p>
       <div class="reel">
-        <figure class="frame"><Image src={twilight} alt="Glass tower at blue hour seen from across the street" widths={[600, 1000]} sizes="(max-width: 860px) 100vw, 58vw" /><figcaption>Sample · twilight exterior</figcaption></figure>
-        <figure class="frame"><Image src={street} alt="Street-level view of lit towers" widths={[600, 900]} sizes="(max-width: 860px) 100vw, 40vw" /><figcaption>Sample · street approach</figcaption></figure>
-        <figure class="frame"><Image src={villa} alt="Hillside villa with lit glass walls and a pool at dusk" widths={[600, 900]} sizes="(max-width: 860px) 100vw, 40vw" /><figcaption>Sample · hill villa at dusk</figcaption></figure>
+        <figure class="frame zoom"><Image src={twilight} alt="Glass tower at blue hour seen from across the street" widths={[600, 1000]} sizes="(max-width: 860px) 100vw, 58vw" /><figcaption>Sample · twilight exterior</figcaption></figure>
+        <figure class="frame zoom"><Image src={street} alt="Street-level view of lit towers" widths={[600, 900]} sizes="(max-width: 860px) 100vw, 40vw" /><figcaption>Sample · street approach</figcaption></figure>
+        <figure class="frame zoom"><Image src={villa} alt="Hillside villa with lit glass walls and a pool at dusk" widths={[600, 900]} sizes="(max-width: 860px) 100vw, 40vw" /><figcaption>Sample · hill villa at dusk</figcaption></figure>
       </div>
     </div>
   </section>
 
-  <section class="sec" style="padding-top:0">
+  <section class="sec">
     <div class="wrap">
       <h2 class="rise">How we work</h2>
       <ol class="steps">
-        <li class="rise"><h3>Build</h3><p>A free growth call, an audit of your current listings and pages, a content plan, and your first shoot.</p></li>
-        <li class="rise"><h3>Grow</h3><p>Consistent posts and reels, listing campaigns and creator collaborations that put your properties in front of the right buyers.</p></li>
-        <li class="rise"><h3>Scale</h3><p>A monthly content engine with a clear report on reach, enquiries and listings won, so you know what to do more of.</p></li>
+        <li class="rise"><span class="dot">1</span><h3>Build</h3><p>A free growth call, an audit of your current listings and pages, a content plan, and your first shoot.</p></li>
+        <li class="rise"><span class="dot">2</span><h3>Grow</h3><p>Consistent posts and reels, listing campaigns and creator collaborations that put your properties in front of the right buyers.</p></li>
+        <li class="rise"><span class="dot">3</span><h3>Scale</h3><p>A monthly content engine with a clear report on reach, enquiries and listings won, so you know what to do more of.</p></li>
       </ol>
     </div>
   </section>
 
-  <section class="sec" id="areas" style="padding-top:0">
+  <section class="sec" id="areas">
     <div class="wrap">
       <h2 class="rise">Where we shoot</h2>
       <div class="areas">
@@ -117,10 +130,10 @@ const faq = [
     </div>
   </section>
 
-  <section class="sec faq" style="padding-top:0">
+  <section class="sec faq">
     <div class="wrap split">
-      <h2>Questions agents ask us</h2>
-      <div>{faq.map(([q, a]) => <details><summary>{q}<Icon name="plus" /></summary><p>{a}</p></details>)}</div>
+      <h2 class="rise">Questions agents ask us</h2>
+      <div>{faq.map(([q, a]) => <details class="rise"><summary>{q}<Icon name="plus" /></summary><p>{a}</p></details>)}</div>
     </div>
   </section>
 
