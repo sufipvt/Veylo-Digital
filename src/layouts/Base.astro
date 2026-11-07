@@ -7,7 +7,7 @@ import { site, nav, wa } from '../site';
 import { getCollection } from 'astro:content';
 
 const { title, description, waText } = Astro.props;
-const path = Astro.url.pathname;
+const path = Astro.url.pathname.replace(/(index)?\.html$/, '');
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const areas = (await getCollection('areas')).sort((a, b) => a.data.order - b.data.order);
 const full = title ? `${title} | ${site.name}` : `${site.name}: Real estate marketing in Delhi NCR & Uttarakhand`;

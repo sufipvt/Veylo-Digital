@@ -26,7 +26,7 @@ npm run build    # static site in dist/
 ## Before launch (owner)
 
 1. Fill in `src/site.ts`: the WhatsApp number, phone and email.
-2. Set the real domain in `astro.config.mjs` and `public/robots.txt`.
+2. The domain (veylomedia.in) is set in `astro.config.mjs` and `public/robots.txt`. After deploying, add it under Custom domains in Cloudflare Pages and change the nameservers at Hostinger to the two Cloudflare gives you.
 3. Replace the sample renders in `src/assets/renders/` and on `/work` with real shoots.
 4. Confirm the retention period and response time in `src/pages/privacy.astro`.
 
