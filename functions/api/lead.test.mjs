@@ -2,8 +2,8 @@
 import assert from 'node:assert/strict';
 import { onRequestPost } from './lead.js';
 
-let sent, ts = true;
-globalThis.fetch = async (u, o) => (u.includes('turnstile') ? { json: async () => ({ success: ts }) } : ((sent = JSON.parse(o.body)), { ok: true }));
+let sent, ts = true, reply = 'ok';
+globalThis.fetch = async (u, o) => (u.includes('turnstile') ? { json: async () => ({ success: ts }) } : ((sent = JSON.parse(o.body)), { ok: true, text: async () => reply }));
 const req = (o, host = 'x.dev') => { const f = new FormData(); for (const [k, v] of Object.entries(o)) [].concat(v).forEach((x) => f.append(k, x)); return new Request(`https://${host}/api/lead`, { method: 'POST', body: f }); };
 const ok = { name: 'Asha', phone: '+91 98765 43210', consent: 'on', type: 'An agent', city: 'Noida', services: ['Drone shoots', 'Hacked'], source: 'home' };
 const env = { SHEET_URL: 'https://s', SHEET_SECRET: 'k', TURNSTILE_SECRET: 't' };
@@ -24,4 +24,5 @@ ts = false; assert.equal(await run(req(ok)), 400, 'failed Turnstile is rejected'
 assert.equal(await run(req(ok), { ...env, TURNSTILE_SECRET: '' }), 503, 'production refuses without Turnstile');
 assert.equal(await run(req(ok, 'localhost'), { ...env, TURNSTILE_SECRET: '' }), 303, 'localhost works without Turnstile');
 assert.equal(await run(new Request('https://x.dev/api/lead', { method: 'POST', body: '{}', headers: { 'Content-Type': 'application/json' } })), 415);
+reply = 'forbidden'; assert.equal(await run(req(ok)), 502, 'a refused save is reported, not hidden'); reply = 'ok';
 console.log('lead endpoint: all checks passed');
