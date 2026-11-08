@@ -4,7 +4,7 @@ export const site = {
   tagline: 'Where Vision Meets Digital Evolution',
   whatsapp: '910000000000', // TODO(owner): WhatsApp number with country code, digits only
   phone: '', // TODO(owner): e.g. '+91 98xxx xxxxx'. Hidden on the site while empty.
-  email: '', // TODO(owner): e.g. 'hello@veylomedia.in'. Hidden on the site while empty.
+  email: 'veylodigitalmedia@gmail.com',
   areas: ['Delhi', 'Noida', 'Greater Noida', 'Gurgaon', 'Uttarakhand'],
 };
 
