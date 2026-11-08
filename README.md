@@ -1,44 +1,57 @@
 # Veylo Media
 
-Marketing website for Veylo Media, a real estate marketing agency for Delhi NCR and Uttarakhand. Built with Astro as static pages, plain CSS and one serverless function.
+Marketing website for Veylo Media, a real estate marketing agency for Delhi NCR and Uttarakhand. Live at **https://veylomedia.in**.
+
+Astro builds every page to static HTML with plain CSS and no client JavaScript. One Cloudflare Pages Function handles the lead form.
 
 ## Run locally
 
 ```sh
 npm install
 npm run dev      # http://localhost:4321
+npm test         # lead endpoint checks
 npm run build    # static site in dist/
 ```
 
-## Where things live
+## Repo layout
 
-| What | Where |
+```
+src/
+  site.ts               contact details (WhatsApp, phone, email), nav
+  pages/                one file per route; services/ and areas/ are generated from content
+  content/              service and area pages as Markdown, typed by content.config.ts
+  components/           LeadForm, PageHero, Close (CTA band), Icon
+  layouts/Base.astro    <head>, SEO and OG tags, header, footer
+  styles/global.css     design tokens and all styles
+  assets/               images (optimised to WebP at build)
+functions/api/lead.js   POST /api/lead: validate, check Turnstile, save to the Sheet
+apps-script/Code.gs     Google Sheet + Gmail alert receiver
+public/                 _headers (security headers), robots.txt, security.txt
+docs/brand/             logo and brand source files (not shipped)
+docs/research/          recon notes from the build
+DESIGN.md, PRODUCT.md   design system and product brief
+.github/                CI (tests, build, audit) and Dependabot
+```
+
+## How it's wired
+
+| Piece | Where it's configured |
 | --- | --- |
-| Contact details (WhatsApp, phone, email) | `src/site.ts` |
-| Service pages | `src/content/services/*.md` |
-| Area pages | `src/content/areas/*.md` |
-| Colours, type, layout | `src/styles/global.css` |
-| Lead form endpoint | `functions/api/lead.js` |
-| Google Sheet + Gmail script | `apps-script/Code.gs` |
-| Security headers | `public/_headers` |
-| Reference recon | `replica/` |
+| Hosting | Cloudflare Pages project `veylo-digital`, auto-deploys `main`, preview per PR |
+| Domain | `veylomedia.in` and `www` on Cloudflare DNS (nameservers moved from Hostinger) |
+| Email | `hello@veylomedia.in` forwards to Gmail via Cloudflare Email Routing |
+| Leads | Form → `/api/lead` → Apps Script web app → "Veylo Leads" Sheet + Gmail alert |
+| Spam | Turnstile widget, honeypot field, rate limit (3 requests per 10 s per IP on `/api/lead`) |
+| Secrets | Pages → Settings → Variables: `SHEET_URL`, `SHEET_SECRET`, `TURNSTILE_SECRET` (secret), `PUBLIC_TURNSTILE_SITE_KEY` (text) |
 
-## Before launch (owner)
+After changing a variable, retry the latest production deployment so it takes effect.
 
-1. Fill in `src/site.ts`: the WhatsApp number, phone and email.
-2. The domain (veylomedia.in) is set in `astro.config.mjs` and `public/robots.txt`. After deploying, add it under Custom domains in Cloudflare Pages and change the nameservers at Hostinger to the two Cloudflare gives you.
-3. Replace the sample renders in `src/assets/renders/` and on `/work` with real shoots.
-4. Confirm the retention period and response time in `src/pages/privacy.astro`.
+## Rotating secrets
 
-## Lead pipeline setup
+1. **Sheet secret:** set a new `SECRET` in Apps Script → Project Settings → Script properties, then the same value in Cloudflare's `SHEET_SECRET`. Redeploy.
+2. **Turnstile:** Cloudflare → Turnstile → the widget → Rotate secret key. Paste it into `TURNSTILE_SECRET`. Redeploy.
 
-1. Create a Google Sheet called "Veylo Leads". Open Extensions → Apps Script and paste `apps-script/Code.gs`.
-2. Under Project Settings → Script properties, add `SECRET` (a long random string) and `NOTIFY` (the Gmail address that should get alerts).
-3. Deploy → New deployment → Web app. Set Execute as to Me and Who has access to Anyone. Copy the web app URL.
-4. In Cloudflare Pages, add these environment variables: `SHEET_URL` (the URL from step 3), `SHEET_SECRET` (same as `SECRET`), `TURNSTILE_SECRET`, and `PUBLIC_TURNSTILE_SITE_KEY` (from Cloudflare Turnstile).
-5. Deploy: connect this repo in Cloudflare Pages with the build command `npm run build` and the output directory `dist`.
-6. Add a rate limit: Cloudflare → Security → WAF → Rate limiting rules. Set path `/api/lead`, 5 requests per minute per IP, action Block.
+## Still to do (owner)
 
-Run `npm test` to check the lead endpoint. See `replica/backend.md` for the security checklist.
-
-To connect a CRM later, forward the same lead object from `functions/api/lead.js` to the CRM's webhook. The sheet stays as a backup.
+- WhatsApp number and phone in `src/site.ts`.
+- Replace the sample renders in `src/assets/renders/` and on `/work` with real shoots.

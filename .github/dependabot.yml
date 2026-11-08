@@ -1,0 +1,11 @@
+# Weekly PRs for outdated or vulnerable dependencies. CI checks each one before you merge.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule: { interval: weekly }
+    groups:
+      astro: { patterns: ['astro', '@astrojs/*', '@fontsource*'] }
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: monthly }

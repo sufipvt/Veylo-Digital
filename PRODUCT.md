@@ -37,10 +37,10 @@ Leads in the Indian real estate market move through WhatsApp and phone calls fir
 
 ## Brand Commitments
 
-- Name: Veylo Media. The logo is a silver and electric-blue V swoosh with the VEYLO wordmark spaced wide and DIGITAL underneath, on black (`brand/logo.png`).
+- Name: Veylo Media. The logo is a silver and electric-blue V swoosh with the VEYLO wordmark spaced wide and DIGITAL underneath, on black (`docs/brand/logo.png`).
 - Tagline: "Where Vision Meets Digital Evolution." Sign-off: "Build · Grow · Scale."
 - Brand palette, pinned by the owner: black ground, electric blue accent, silver.
-- About copy from the brand graphic (`brand/about-us.png`): "Veylo Media is a premium digital marketing agency dedicated to helping brands grow, connect and achieve more in the digital world. We combine strategy, creativity and data-driven insights to build a powerful online presence and turn ideas into measurable results." Pillars: Strategic Marketing, Creative Solutions, Real Growth, Long-Term Partnerships.
+- About copy from the brand graphic (`docs/brand/about-us.png`): "Veylo Media is a premium digital marketing agency dedicated to helping brands grow, connect and achieve more in the digital world. We combine strategy, creativity and data-driven insights to build a powerful online presence and turn ideas into measurable results." Pillars: Strategic Marketing, Creative Solutions, Real Growth, Long-Term Partnerships.
 - Voice: an expert digital marketer. Lead with outcomes over features, use short sentences, avoid jargon, and use one CTA per section.
 
 ## Evidence on Hand
