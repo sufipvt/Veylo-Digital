@@ -12,11 +12,13 @@ function doPost(e) {
 
   const lock = LockService.getScriptLock();
   lock.waitLock(10000); // two leads at once must not overwrite each other
-  const sheet = SpreadsheetApp.getActive().getSheets()[0];
-  if (sheet.getLastRow() === 0) sheet.appendRow(COLS);
-  sheet.appendRow([new Date(), d.name, d.phone, d.email, d.type, d.company, d.city, d.services, d.budget || '', d.message, d.source, 'New']);
-
-  lock.releaseLock();
+  try {
+    const sheet = SpreadsheetApp.getActive().getSheets()[0];
+    if (sheet.getLastRow() === 0) sheet.appendRow(COLS);
+    sheet.appendRow([new Date(), d.name, d.phone, d.email, d.type, d.company, d.city, d.services, d.budget || '', d.message, d.source, 'New']);
+  } finally {
+    lock.releaseLock(); // a failed write must not leave the next lead waiting on a stuck lock
+  }
 
   // Free Gmail accounts can send 100 alert emails a day; the row is saved even past that.
   if (MailApp.getRemainingDailyQuota() > 0) MailApp.sendEmail({

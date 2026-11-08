@@ -32,6 +32,7 @@ export async function onRequestPost({ request, env }) {
     return new Response('Please check your name, phone number and email, tick the consent box, then try again.', { status: 400 });
 
   const res = await fetch(env.SHEET_URL, { method: 'POST', body: JSON.stringify({ secret: env.SHEET_SECRET, ...lead }) });
-  if (!res.ok) return new Response('We could not save your details. Please message us on WhatsApp instead.', { status: 502 });
+  // Apps Script answers 200 even when it refuses, so only its literal 'ok' counts as saved.
+  if (!res.ok || (await res.text()).trim() !== 'ok') return new Response('We could not save your details. Please message us on WhatsApp instead.', { status: 502 });
   return back('/thank-you');
 }
