@@ -2,7 +2,7 @@
 
 Marketing website for Veylo Media, a real estate marketing agency for Delhi NCR and Uttarakhand. Live at **https://veylomedia.in**.
 
-Astro builds every page to static HTML with plain CSS and no client JavaScript. One Cloudflare Pages Function handles the lead form.
+Astro builds every page to static HTML with plain CSS. The only client JavaScript is the React Bits spotlight on the home page service tiles, hydrated when it scrolls into view. One Cloudflare Pages Function handles the lead form.
 
 ## Run locally
 
@@ -20,7 +20,7 @@ src/
   site.ts               contact details (WhatsApp, phone, email), nav
   pages/                one file per route; services/ and areas/ are generated from content
   content/              service and area pages as Markdown, typed by content.config.ts
-  components/           LeadForm, PageHero, Close (CTA band), Icon
+  components/           LeadForm, PageHero, Close (CTA band), Icon; react-bits/ holds React Bits components copied in
   layouts/Base.astro    <head>, SEO and OG tags, header, footer
   styles/global.css     design tokens and all styles
   assets/               images (optimised to WebP at build)

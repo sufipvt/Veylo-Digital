@@ -231,6 +231,11 @@ body:has(.hero) .hd .btn-blue:hover { background: var(--blue-btn); border-color:
 .tile:hover img { transform: scale(1.08); }
 .tile:hover .more svg { transform: translateX(5px); }
 .bento + .tag { margin-top: 16px; }
+/* React Bits SpotlightCard: a cursor light over the tile, sharing its shape. */
+.spotlight-card.spot { height: 100%; padding: 0; border-radius: var(--card); background: none; box-shadow: none; }
+.spotlight-card.spot .spotlight-card__light { z-index: 1; mix-blend-mode: screen; }
+.spotlight-card.spot .spotlight-card__border { display: none; }
+.spot astro-slot { display: contents; }
 @media (max-width: 860px) { .bento { grid-template-columns: 1fr; grid-auto-rows: auto; } .bento li:first-child { grid-row: auto; } .tile { min-height: 260px; } .bento li:first-child .tile { min-height: 420px; } }
 .glow { background: radial-gradient(60% 55% at 85% 0%, var(--blue-wash), transparent 70%); }
 .glow .lede, .close .lede { margin-top: 24px; }
