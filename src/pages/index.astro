@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import LeadForm from '../components/LeadForm.astro';
 import Close from '../components/Close.astro';
+import SpotlightCard from '../components/react-bits/SpotlightCard.jsx';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { wa } from '../site';
@@ -71,7 +72,7 @@ const faq = [
       </div>
       <ol class="bento">
         {services.map((s, i) => (
-          <li class="rise"><a class="tile" href={`/services/${s.id}`}>
+          <li class="rise"><SpotlightCard client:visible className="spot" spotlightColor="#6aafff" intensity={0.35} spotlightSize={320} borderGlow={0.9}><a class="tile" href={`/services/${s.id}`}>
             {!i && <Image src={dusk} alt="" widths={[500, 900]} sizes="(max-width: 860px) 100vw, 40vw" />}
             <span class="tile-n">{String(i + 1).padStart(2, '0')}</span>
             <span class="tile-in">
@@ -79,7 +80,7 @@ const faq = [
               <p>{s.data.line}</p>
               <span class="more">Explore <Icon name="arrow" /></span>
             </span>
-          </a></li>
+          </a></SpotlightCard></li>
         ))}
       </ol>
       <p class="tag">Pictures are sample renders</p>
